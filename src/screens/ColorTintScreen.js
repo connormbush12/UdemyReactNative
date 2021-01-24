@@ -2,62 +2,49 @@ import React, {useState} from 'react'
 import {Text, View, StyleSheet, FlatList, Button} from 'react-native'
 import ColorButton from '../components/colorButton'
 
+const COLOR_INCREMENT = 15;
+
 const ColorTintScreen = () => {
     const [red, setRed] = useState(0)
     const [green, setGreen] = useState(0)
     const [blue, setBlue] = useState(0)
 
+    const setColor = (color, change) => {
+        switch(color) {
+            case 'red':
+                red+change>255 || red+change < 0 ? null : setRed(red+change)
+            break;
+            case 'green':
+                green+change>255 || green+change < 0 ? null : setGreen(green+change)
+            break;
+            case 'blue':
+                blue+change>255 || blue+change < 0 ? null : setBlue(blue+change)
+            break;
+        }
+            
+        }
+
     return (
         <View>
             <ColorButton 
                 color='Red' 
-                onIncrease={()=> {
-                    setRed(red+10)
-                    if(red>256) {
-                        setRed(256)
-                    }
-                }}
-                onDecrease={()=> {
-                    setRed(red-10)
-                    if(red<0) {
-                        setRed(0)
-                    }
-                }}
+                onIncrease={()=> {setColor('red', COLOR_INCREMENT)}}
+                onDecrease={()=> {setColor('red', -1*COLOR_INCREMENT)}}
             />
             <ColorButton 
                 color='Green' 
-                onIncrease={()=> {
-                    setGreen(green+10)
-                    if(green>256) {
-                        setGreen(256)
-                    }
-                }}
-                onDecrease={()=> {
-                    setGreen(green-10)
-                    if(green<0) {
-                        setGreen(0)
-                    }
-                }}
+                onIncrease={()=> {setColor('green', COLOR_INCREMENT)}}
+                onDecrease={()=> {setColor('green', -1*COLOR_INCREMENT)}}
             />            
             <ColorButton 
                 color='Blue'
-                onIncrease={()=> {
-                    setBlue(blue+10)
-                    if(blue>256) {
-                        setBlue(256)
-                    }
-                }}
-                onDecrease={()=> {
-                    setBlue(blue-10)
-                    if(blue<0) {
-                        setBlue(0)
-                    }
-                }}
+                onIncrease={()=> {setColor('blue', COLOR_INCREMENT)}}
+                onDecrease={()=> {setColor('blue', -1*COLOR_INCREMENT)}}
             />
             <View style={{width:150, height:150, backgroundColor: `rgb(${red}, ${green}, ${blue})`}}></View>
         </View>
     )
-}
+    }
 
 const styles = StyleSheet.create({
     textStyles : {
