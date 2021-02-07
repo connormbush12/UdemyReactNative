@@ -1,6 +1,6 @@
 import React, {useReducer} from 'react'
 import {Text, View, StyleSheet, FlatList, Button} from 'react-native'
-import ColorButton from '../components/colorButton'
+import ColorButton from '../components/ColorButton'
 
 const COLOR_INCREMENT = 15;
 const reducer = (state, action) => {
