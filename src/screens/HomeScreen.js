@@ -24,10 +24,14 @@ const HomeScreen = ({navigation}) => {
       title="Go to Color Page"
       onPress={() => navigation.navigate('Color')}
      />
-     <Button 
+    <Button 
       title="Go to Color Tint Page"
       onPress={() => navigation.navigate('ColorTint')}
-      />
+    />
+    <Button 
+      title="Go to Text Input Page"
+      onPress={() => navigation.navigate('TextInput')}
+    />
   </View>
 };
 
