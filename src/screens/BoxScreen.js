@@ -3,19 +3,42 @@ import {TextInput, Text, View, StyleSheet} from 'react-native'
 
 const BoxScreen = () => {
     return (
-        <View flexDirection='column' alignItems='center'>
-            <Text style={styles.child}>Element 1</Text>
-            <Text style={styles.child}>Element 2</Text>
-            <Text style={styles.child}>Element 3</Text>
+        <View style={styles.parent}>
+            <Text style={styles.childOne}>Element 1</Text>
+            <Text style={styles.childTwo}>Element 2</Text>
+            <Text style={styles.childThree}>Element 3</Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    child : {
+    parent : {
+        flexDirection : 'row',
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        margin: 10,
+        borderWidth: 2,
+        width: 400,
+        height: 600
+    },
+    childOne : {
        margin: 5,
        padding: 25 ,
-       borderWidth: 2
+       borderWidth: 2,
+       backgroundColor: 'red'
+    },
+    childTwo : {
+        margin: 5,
+        padding: 25,
+        borderWidth: 2,
+        top: 200,
+        backgroundColor: 'green'
+    },
+    childThree : {
+        margin: 5,
+        padding: 25,
+        borderWidth: 2,
+        backgroundColor: 'purple'
     }
 })
 
